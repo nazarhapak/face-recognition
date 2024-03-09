@@ -1,0 +1,23 @@
+.imageBox {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+}
+
+.wrapper > img {
+    width: 400px;
+    height: auto;
+}
+
+.face-border {
+    position: absolute;
+    border: 2px solid lightblue;
+}
+
+.failed {
+    text-align: center;
+}
