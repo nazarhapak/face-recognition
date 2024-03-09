@@ -1,0 +1,59 @@
+.form{
+    width: calc(100vw - 40px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.inputBox {
+    width: 400px;
+    padding: 15px 17px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* border-radius: 5px; */
+}
+
+input {
+    font-family: 'Courier New', 'Courier New', Courier, monospace;
+    background-color: black;
+    color: white;
+    width: 70%;
+    height: 25px;
+    border: none;
+    padding: 0 5px;
+}
+
+input::placeholder {
+    color: white;
+}
+
+.detectButton {
+    font-family: 'Courier New', 'Courier New', Courier, monospace;
+    width: 25%;
+    border: none;
+    background-color: black;
+    height: 27px;
+    color: white;
+}
+
+.detectButton:hover {
+    background-color: rgb(56, 21, 82);
+    cursor: pointer;
+}
+
+.detectButton:active {
+    box-shadow: 0px 0px 0px 1px rgb(56, 21, 82);
+}
+
+
+@media only screen and (max-width: 500px) {
+    .inputBox{
+        width: 300px;
+    }
+}
