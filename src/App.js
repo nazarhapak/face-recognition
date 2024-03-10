@@ -5,6 +5,8 @@ import Navigation from './components/Navigation/Navigation';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Rank from './components/Rank/Rank';
+import SignIn from './components/SignIn/SignIn';
+import Register from './components/Register/Register';
 
 const getRequestOptions = (imageURL) => {
   const PAT = '218fa173358d40d2912f4c1bd4d4d73e';
@@ -87,7 +89,9 @@ class App extends Component {
     this.state = {
       input: '',
       imageURL: '',
-      arrayOfBoundingBoxes: []
+      arrayOfBoundingBoxes: [],
+      route: 'signIn',
+      isSignedIn: false
     }
   }
 
@@ -102,14 +106,39 @@ class App extends Component {
     }
   }
 
+  changeRoute = (route) => {
+    this.setState({route: route})
+    if (route === 'signIn' || route === 'register') {
+      this.setState({isSignedIn: false})
+    } else if (route === 'home') {
+      this.setState({isSignedIn: true})
+    }
+  }
+
   render () {
     return (
       <div className="App">
         <Particles />
-        <Navigation />
-        <Rank/>
-        <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
-        <FaceRecognition imageURL={this.state.imageURL} arrayOfBoundingBoxes={this.state.arrayOfBoundingBoxes}/>
+        <Navigation changeRoute={this.changeRoute} isSignedIn={this.state.isSignedIn}/>
+        { (() => {
+          if (this.state.route === 'signIn') {
+            return (
+              <SignIn changeRoute={this.changeRoute}/>
+            )
+          } else if (this.state.route === 'register') {
+            return (
+              <Register changeRoute={this.changeRoute}/>
+            )
+          } else if (this.state.route === 'home') {
+            return (
+              <div>
+                <Rank/>
+                <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
+                <FaceRecognition imageURL={this.state.imageURL} arrayOfBoundingBoxes={this.state.arrayOfBoundingBoxes}/>          
+              </div>
+            )
+          }
+        })()}
       </div>
     );
   }
