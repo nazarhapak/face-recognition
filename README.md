@@ -1,3 +1,3 @@
 # Face Recognition
 
-Enter image URL, click Enter and Clarifai powered AI will detect faces on the image and highlight them with lightblue boxes.
+Face Recognition application built using Clarifai face-detection model with simple and minimalistic design. It identifies faces in images and highlights them with a light-blue square, showcasing cool AI capabilities.
