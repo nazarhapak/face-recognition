@@ -109,6 +109,17 @@ class App extends Component {
     }
   };
 
+  onLinkClick = (event) => {
+    event.preventDefault();
+    this.setState({ imageURL: "https://thispersondoesnotexist.com/" });
+    getFaceLocation("https://thispersondoesnotexist.com/").then((resp) => {
+      if (resp === undefined) {
+        resp = [];
+      }
+      this.setState({ arrayOfBoundingBoxes: calculateFaceBorders(resp) });
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -121,6 +132,7 @@ class App extends Component {
         <FaceRecognition
           imageURL={this.state.imageURL}
           arrayOfBoundingBoxes={this.state.arrayOfBoundingBoxes}
+          onLinkClick={this.onLinkClick}
         />
       </div>
     );

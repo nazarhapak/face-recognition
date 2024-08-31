@@ -1,23 +1,41 @@
 .imageBox {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .wrapper {
-    position: relative;
-    width: 400px;
+  position: relative;
+  width: 400px;
 }
 
 .wrapper > img {
-    width: 400px;
-    height: auto;
+  width: 400px;
+  height: auto;
 }
 
 .face-border {
-    position: absolute;
-    border: 2px solid lightblue;
+  position: absolute;
+  border: 2px solid lightblue;
 }
 
 .failed {
-    text-align: center;
+  text-align: center;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: lightblue;
+  text-decoration: none;
+}
+
+br {
+  content: " ";
+  display: block;
+  margin: 12px 0;
+}
+
+.link:hover,
+.link:active {
+  text-decoration: underline;
 }
